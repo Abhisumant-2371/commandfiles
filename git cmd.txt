@@ -160,3 +160,10 @@ git branch -D branchname->no error and deleted
 
 // --------------Pushing the local branch to the remote--------------------------------------------
 git push origin branch_name
+
+
+//-----------------Just a command ----------------------------------------------------------------
+git push origin branchname:brachnameingithub
+
+//-----------------deleting the branch form the remote------------------------------------------
+git push -d origin branch_name
