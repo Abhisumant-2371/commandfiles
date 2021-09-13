@@ -3,7 +3,7 @@ git status=checking the status
 git config user.name->cheking the user name
 git config user.email->checking the user email
 git config --list ->list of all the information
-
+it was just a msg for understanding the github
 
 
 step 1:git status(to check is it a repository)
