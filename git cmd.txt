@@ -3,14 +3,14 @@ git status=checking the status
 git config user.name->cheking the user name
 git config user.email->checking the user email
 git config --list ->list of all the information
-it was just a msg for understanding the github
+
 
 
 step 1:git status(to check is it a repository)
 step 2:git init (intialised as a git folder)
 step 3:git status (on branch master)
-step 4:git add --a(all the files in the staging area and changes to be commited)
-step 5:for adding a single file use git add file_name
+step 4:git "add --a" or we can use "git add ."(all the files in the staging area and changes to be commited)
+step 5:for adding a single file use  "git add file_name"
 step 6:for unstaging the file after staging use git rm --cached file_name(maybe it is used only once lemme confirm it first)
 step 7:git commit -m "Initial commit"
 step 8:git log (for checking all the commits with the msg)
@@ -122,13 +122,17 @@ git remote set-head origin -a
 git config --global alias.st 'status'
 
 //--------------------------------Creating and switching branches--------------------------------
-
-git checkout -b branch_name (new branch is created)
+git branch branch_name-->(new branch created and we will remain in the same branch from where we have created the new one)
+git checkout -b branch_name (new branch is created and we will be directly sent to it )
 git checkout branchname(to switch to a new branch)
 git checkout master
 
 //--------------------------------Branching and merging the production grade project----------------
 git merge branchname -->you should be on master
+But if you are on branch other than master let say dev and from there a new branch started multiple and you want to
+merge the multiple to dev then you need to come on the dev from master and merge them  
+
+
 
 //--------------------------------Resolving merge conflict------------------------------------------
 a->b->c->d->e
@@ -137,12 +141,9 @@ a->b->c->d->e
 	     head file has rahul now the mergin conflict appears i.e e has rahul and g has abhi so it will ask from us that which we have to take and which 
 		one to remove)
 
-<<<<<<< HEAD
 
 now i don't have anything to change
-=======
 now i am changing in the conflict branch
->>>>>>> conflict
 
 
 //----------this is how conflict look likes
@@ -167,3 +168,14 @@ git push origin branchname:brachnameingithub
 
 //-----------------deleting the branch form the remote------------------------------------------
 git push -d origin branch_name
+
+
+//--------------------making are local branch in sync with the original one----------------------
+git checkout master -->only if you are not on the master branch
+git fetch --all -p //fetching origin tracking branches no longer on remote
+git pull 
+git push
+
+
+//--------------------moving directly to any commits content------------------------------------
+git checkout commit_hashcode_ofthatcontent
