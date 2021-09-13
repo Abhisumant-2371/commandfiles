@@ -92,12 +92,16 @@ first create a repository
 give it a name and description 
 then public/private
 in your complete reposiory on your desktop run the cmd
-git remote add origin https://github.com/Abhisumant-2371/Git-demo.git
+after all the commit check if the status is clean or not then,
+first give your file as the master file for others by command
+->git branch -m master
+Now link your file to the remote repo.
+-->git remote add origin https://github.com/Abhisumant-2371/Git-demo.git
 
 After this run the cmd .....
 git remote -->it tells us that your repo is on remote or not if yes then the name will be printed e.g. origin
 
-git remote -v kuch to hai lekin pata ni
+//git remote -v kuch to hai lekin pata ni//
 git push -u origin master
 
 After generating the key and pasting the command 
@@ -146,7 +150,7 @@ in that file
 
 for listing down the all conflicts use
 git log --merge
-
+git branch -for seeing all the branch
 git branch -v(last commit of the branch)
 git branch --merged->already merged branch
 git branch --no -merged->not alredy merge branch
