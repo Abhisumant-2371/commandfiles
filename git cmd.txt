@@ -156,3 +156,7 @@ git branch --merged->already merged branch
 git branch --no -merged->not alredy merge branch
 git branch -d branchname->gives error if the branch in not merged for a single time 
 git branch -D branchname->no error and deleted
+
+
+// --------------Pushing the local branch to the remote--------------------------------------------
+git push origin branch_name
