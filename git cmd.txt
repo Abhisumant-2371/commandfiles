@@ -1,0 +1,154 @@
+git --version:used for checking the version
+git status=checking the status 
+git config user.name->cheking the user name
+git config user.email->checking the user email
+git config --list ->list of all the information
+
+
+
+step 1:git status(to check is it a repository)
+step 2:git init (intialised as a git folder)
+step 3:git status (on branch master)
+step 4:git add --a(all the files in the staging area and changes to be commited)
+step 5:for adding a single file use git add file_name
+step 6:for unstaging the file after staging use git rm --cached file_name(maybe it is used only once lemme confirm it first)
+step 7:git commit -m "Initial commit"
+step 8:git log (for checking all the commits with the msg)
+step 9:$ rm -rf .git (now the directory will not remain the git repository)
+
+
+After adding a file in the staging area if make any changes then only the previously added file will go for the commit 
+not the recently updated file ,for sending that one you need to again add it to the staging area by using 
+git add file_name
+
+// -----------------------------------------------------
+
+IGNORING FILES IN GIT
+
+if you have mistyped somthing and you have to come out of the commmand problem then you have to use "ctrl + C"
+
+if you have a file in your folder which is not necessary for you but keeep on disturbing you by frequent modification then make a file name .gitignore and write the 
+complete name of the disturbing file in it that's it 
+
+git diff -cmd is used for diffrentiating the same file in staging area and working directory
+git diff --staged -compare the recent commits means last and second last commit
+
+
+//-------------------------SKIPING THE STAGING AREA-------------------------------------------------------
+
+git commit -a -m "directly comming and skipping the staging area"
+but it will only commit the tracked file and that only will be commited not those which are untracked
+
+//--------------------------Removing file with the help of git bash---------------------------------------
+
+git rm file_name
+now it will delete the file and automatically add the repo to the staging area 
+But if we manually delete a file then we have to add all to the staging area by git add . and the commit it
+//--------------------------Renaming the file ------------------------------------------------------------
+git mv old_name new_name 
+Similarly it will add the rest of the file to the staging area
+
+// --------------------------Cloning the others repo.-----------------------------------------------------
+
+git clone url
+a folder in the current folder will be generated now that new one is a git repo not our's so go into that and start working 
+
+//-------------------------ignoring the priorily tracked file---------------------------------------------
+if from the starting we were adding our file to the git and in between we want to ignore and we added it to the .gitignore file then 
+it will not be ignored as git was keeping the track of it from the start so we use the cmd
+git rm --cached file_name 
+
+// -----------------------viewing commit------------------------------------------------------------------
+
+git log --->shows all commit
+git log -p-->shows with there diff (diffrence)
+git log -p -2-->previous 2 commit
+git log --stat=>show the diff shortly summary type
+git log --pretty=oneline-->shows all the commit in line by line form (press q to exit)
+git log --pretty=full-->author commit person and msg of commit
+git log --pretty=short-->author and msg of the commit person
+
+
+//-----------------------time filter-------------------------------------------------------------------
+
+git log --since=2.months/2.days/2.years
+git log --pretty=format:%h -- %an" where an represent author_name and similarly ae represent author email
+
+git commit --amend "change the previous commit:"
+//-------------------------Remote=Internet(Github)--------------------------------------------------------
+
+//--------------------------Unstaging a file after staging-----------------------------------------------
+git restore --staged filename
+
+//---------------------------Unmodifying a file after accidently modifying it----------------------------
+
+git checkout -- filename (it will give back you your original file i.e as it was in the final commit)
+git checkout -f (send all the file to the last commit)
+
+//---------------------------Working with remote repository----------------------------------------------
+Working with github
+
+first create a repository 
+give it a name and description 
+then public/private
+in your complete reposiory on your desktop run the cmd
+git remote add origin https://github.com/Abhisumant-2371/Git-demo.git
+
+After this run the cmd .....
+git remote -->it tells us that your repo is on remote or not if yes then the name will be printed e.g. origin
+
+git remote -v kuch to hai lekin pata ni
+git push -u origin master
+
+After generating the key and pasting the command 
+ssh-keygen -t rsa -b 4096 -C "abhisumantt@gmail.com"
+key will be generated and the goes into the file you named there when git bash ask
+from there copy the code and paste it in key secion in setting 
+
+
+
+If you have a local clone, you can update it by running:
+
+git branch -m main master
+git fetch origin
+git branch -u origin/master master
+git remote set-head origin -a
+
+//---------- ----------------------Alias cmd setting------------------------------------------
+git config --global alias.st 'status'
+
+//--------------------------------Creating and switching branches--------------------------------
+
+git checkout -b branch_name (new branch is created)
+git checkout branchname(to switch to a new branch)
+git checkout master
+
+//--------------------------------Branching and merging the production grade project----------------
+git merge branchname -->you should be on master
+
+//--------------------------------Resolving merge conflict------------------------------------------
+a->b->c->d->e
+      |
+      ->f->g(finally suppose that in g there is head file in which you write abhi and when it was in c the content was ram after that in e due to some change
+	     head file has rahul now the mergin conflict appears i.e e has rahul and g has abhi so it will ask from us that which we have to take and which 
+		one to remove)
+
+<<<<<<< HEAD
+
+now i don't have anything to change
+=======
+now i am changing in the conflict branch
+>>>>>>> conflict
+
+
+//----------this is how conflict look likes
+in that file
+
+for listing down the all conflicts use
+git log --merge
+
+git branch -v(last commit of the branch)
+git branch --merged->already merged branch
+git branch --no -merged->not alredy merge branch
+git branch -d branchname->gives error if the branch in not merged for a single time 
+git branch -D branchname->no error and deleted
